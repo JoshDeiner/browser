@@ -1,0 +1,7 @@
+# docker-compose.yml
+version: '3'
+services:
+  searxng:
+    image: searxng/searxng
+    ports:
+      - "8888:8080"  # or whatever port you need

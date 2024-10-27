@@ -15,5 +15,6 @@ COPY uwsgi.ini /etc/searxng/uwsgi.ini
 # Expose port 8888 for SearxNG
 EXPOSE 8888
 
+
 # Use the default CMD from the searxng/searxng image to start the server
 CMD ["uwsgi", "--ini", "/etc/searxng/uwsgi.ini"]
