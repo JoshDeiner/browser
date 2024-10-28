@@ -4,13 +4,7 @@ services:
     container_name: searxng-instance
     ports:
       - "8080:8080"
-    networks:
-      - search_network
     volumes:
       - ./settings.yml:/etc/searxng/settings.yml
       - ./uwsgi.ini:/etc/searxng/uwsgi.ini
     working_dir: /etc/searxng 
-
-networks:
-  search_network:
-    external: true 
