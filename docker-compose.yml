@@ -1,7 +1,16 @@
-# docker-compose.yml
-version: '3'
 services:
   searxng:
-    image: searxng/searxng
+    image: searxng/searxng:2024.10.28-b176323e8
+    container_name: searxng-instance
     ports:
-      - "8888:8080"  # or whatever port you need
+      - "8080:8080"
+    networks:
+      - search_network
+    volumes:
+      - ./settings.yml:/etc/searxng/settings.yml
+      - ./uwsgi.ini:/etc/searxng/uwsgi.ini
+    working_dir: /etc/searxng 
+
+networks:
+  search_network:
+    external: true 
